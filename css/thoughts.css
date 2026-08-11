@@ -1,0 +1,696 @@
+@import url('https://fonts.googleapis.com/css2?family=Ribeye&display=swap');
+
+
+
+/* =========================================
+   RESET
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+
+    background: #fafaf9;
+
+    color: #111;
+
+    overflow-x: hidden;
+}
+
+/* =========================================
+   DOTTED BACKGROUND
+========================================= */
+
+.dotted-background {
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    z-index: -1;
+
+    pointer-events: none;
+
+    background-image: radial-gradient(
+        rgba(0, 0, 0, 0.18) 1px,
+        transparent 1px
+    );
+
+    background-size: 14px 14px;
+
+    opacity: 0.25;
+}
+
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.thought-header {
+
+    width: 88%;
+
+    max-width: 1500px;
+
+    margin: auto;
+
+    padding-top: 90px;
+
+    padding-bottom: 100px;
+}
+
+
+
+/* Small heading */
+
+.eyebrow {
+
+    font-family: Arial, sans-serif;
+
+    font-size: 11px;
+
+    letter-spacing: 6px;
+
+    color: #78808b;
+
+    margin-bottom: 25px;
+}
+
+
+.eyebrow::before {
+
+    content: "";
+
+    display: inline-block;
+
+    width: 7px;
+
+    height: 7px;
+
+    background: #111;
+
+    border-radius: 50%;
+
+    margin-right: 8px;
+}
+
+
+
+/* Main heading */
+
+.thought-header h1 {
+
+    font-family: "Ribeye", Georgia, serif;
+
+    font-size: clamp(45px, 5vw, 78px);
+
+    font-weight: 400;
+
+    line-height: 1.1;
+
+    letter-spacing: 1px;
+}
+
+
+
+/* Description */
+
+.intro {
+
+    margin-top: 25px;
+
+    max-width: 480px;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 13px;
+
+    line-height: 1.8;
+
+    letter-spacing: 1px;
+
+    color: #777;
+}
+
+
+
+/* =========================================
+   GALLERY
+========================================= */
+
+.thought-gallery {
+
+    width: 88%;
+
+    max-width: 1500px;
+
+    margin: auto;
+
+    display: flex;
+
+    align-items: flex-start;
+
+    justify-content: space-between;
+
+    gap: 45px;
+
+    padding-bottom: 180px;
+}
+
+
+
+/* =========================================
+   CARD
+========================================= */
+
+.thought-card {
+
+    position: relative;
+
+    flex: 1;
+
+    min-width: 0;
+
+    cursor: pointer;
+}
+
+
+
+/* =========================================
+   ZIG-ZAG
+========================================= */
+
+.card-1 {
+
+    margin-top: 0;
+}
+
+
+.card-2 {
+
+    margin-top: 75px;
+}
+
+
+.card-3 {
+
+    margin-top: 25px;
+}
+
+
+.card-4 {
+
+    margin-top: 95px;
+}
+
+
+.card-5 {
+
+    margin-top: 45px;
+}
+
+
+
+/* =========================================
+   IMAGE BOX
+========================================= */
+
+.image-box {
+
+    position: relative;
+
+    width: 100%;
+
+    aspect-ratio: 0.76;
+
+    overflow: hidden;
+
+    border-radius: 6px;
+
+    background: #ddd;
+}
+
+
+
+/* =========================================
+   IMAGE
+========================================= */
+
+.image-box img {
+
+    width: 100%;
+
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    transition:
+        transform 1s cubic-bezier(.2,.7,.2,1),
+        filter 0.8s ease;
+}
+
+
+
+/* =========================================
+   IMAGE HOVER
+========================================= */
+
+.thought-card:hover
+.image-box img {
+
+    transform: scale(1.12);
+
+    filter:
+
+        blur(5px)
+
+        brightness(0.55);
+}
+
+
+
+/* =========================================
+   DARK OVERLAY
+========================================= */
+
+.overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.35);
+
+    opacity: 0;
+
+    transition:
+        opacity 0.8s ease;
+}
+
+
+.thought-card:hover
+.overlay {
+
+    opacity: 1;
+}
+
+
+
+/* =========================================
+   QUOTE
+========================================= */
+
+.quote {
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 4;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 35px;
+
+    color: white;
+
+    opacity: 0;
+
+    transform: translateY(20px);
+
+    transition:
+        opacity 0.6s ease,
+        transform 0.6s ease;
+}
+
+
+.thought-card:hover
+.quote {
+
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+
+
+/* Quote number */
+
+.quote span {
+
+    font-family: Arial, sans-serif;
+
+    font-size: 10px;
+
+    letter-spacing: 5px;
+
+    opacity: 0.7;
+
+    margin-bottom: 22px;
+}
+
+
+
+/* Quote text */
+
+.quote p {
+
+    font-family: Georgia, serif;
+
+    font-size: clamp(17px, 1.4vw, 25px);
+
+    line-height: 1.45;
+
+    max-width: 250px;
+}
+
+
+
+/* =========================================
+   FLOATING TITLE
+========================================= */
+
+.floating-label {
+
+    position: absolute;
+
+    z-index: 6;
+
+    left: -20px;
+
+    bottom: -20px;
+
+    min-width: 145px;
+
+    padding: 17px 20px;
+
+    /* Slightly transparent */
+    background: rgba(250, 250, 248, 0.70);
+
+    /* Glass effect */
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
+    border: 1px solid rgba(255, 255, 255, 0.45);
+
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.08);
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 7px;
+
+    transition:
+        transform 0.5s ease,
+        background 0.5s ease,
+        box-shadow 0.5s ease;
+}
+
+
+/* =========================================
+   FLOATING LABEL HOVER
+========================================= */
+
+.thought-card:hover
+.floating-label {
+
+    transform: translateY(-7px);
+
+    background: rgba(250, 250, 248, 0.78);
+
+    box-shadow:
+        0 20px 40px rgba(0, 0, 0, 0.14);
+}
+
+
+/* =========================================
+   TITLE
+========================================= */
+
+.floating-label strong {
+
+    font-family: Georgia, serif;
+
+    font-size: 18px;
+
+    font-weight: 400;
+
+    letter-spacing: 1px;
+
+    color: #111;
+}
+
+
+/* =========================================
+   SMALL TITLE
+========================================= */
+
+.floating-label small {
+
+    font-family: Arial, sans-serif;
+
+    font-size: 8px;
+
+    letter-spacing: 3px;
+
+    color: #777;
+}
+
+
+/* =========================================
+   CARD INFORMATION
+========================================= */
+
+.card-info {
+
+    padding-top: 25px;
+}
+
+
+
+/* Main title */
+
+.card-info h2 {
+
+    font-family: Georgia, serif;
+
+    font-size: 22px;
+
+    font-weight: 400;
+
+    line-height: 1.2;
+}
+
+
+
+/* Meta */
+
+.meta {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-top: 13px;
+}
+
+
+.meta span {
+
+    font-family: Arial, sans-serif;
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+
+    color: #89919d;
+}
+
+
+
+/* =========================================
+   SUBTLE CARD HOVER
+========================================= */
+
+.thought-card {
+
+    transition:
+        transform 0.6s ease;
+}
+
+
+
+/* Keep zig-zag + hover */
+
+.card-1:hover {
+
+    transform: translateY(-8px);
+}
+
+
+.card-2:hover {
+
+    transform: translateY(67px);
+}
+
+
+.card-3:hover {
+
+    transform: translateY(17px);
+}
+
+
+.card-4:hover {
+
+    transform: translateY(87px);
+}
+
+
+.card-5:hover {
+
+    transform: translateY(37px);
+}
+
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1100px) {
+
+    .thought-gallery {
+
+        width: 92%;
+
+        gap: 25px;
+    }
+
+
+    .thought-header {
+
+        width: 92%;
+    }
+
+
+    .floating-label {
+
+        left: -10px;
+
+        min-width: 125px;
+
+        padding: 14px;
+    }
+
+
+    .floating-label strong {
+
+        font-size: 15px;
+    }
+
+}
+
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+
+    .thought-header {
+
+        width: 88%;
+
+        padding-top: 60px;
+
+        padding-bottom: 70px;
+    }
+
+
+    .thought-header h1 {
+
+        font-size: 42px;
+    }
+
+
+    /*
+       On mobile we allow horizontal
+       scrolling instead of destroying
+       the desktop zig-zag design.
+    */
+
+    .thought-gallery {
+
+        width: max-content;
+
+        margin-left: 8%;
+
+        gap: 35px;
+
+        overflow: visible;
+    }
+
+
+    .thought-card {
+
+        flex: 0 0 220px;
+
+        width: 220px;
+    }
+
+
+    .card-1 {
+        margin-top: 0;
+    }
+
+
+    .card-2 {
+        margin-top: 60px;
+    }
+
+
+    .card-3 {
+        margin-top: 20px;
+    }
+
+
+    .card-4 {
+        margin-top: 70px;
+    }
+
+
+    .card-5 {
+        margin-top: 35px;
+    }
+
+}
