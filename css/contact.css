@@ -1,0 +1,1929 @@
+/* =====================================================
+   GOOGLE FONTS
+===================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=DM+Sans:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap');
+
+
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    width: 100%;
+    min-height: 100vh;
+
+    background: #f7f7f5;
+
+    color: #111;
+
+    font-family:
+        "DM Sans",
+        sans-serif;
+
+    overflow-x: hidden;
+}
+
+
+/* =====================================================
+   PAGE
+===================================================== */
+
+.contact-page {
+    position: relative;
+
+    width: 100%;
+    min-height: 100vh;
+
+    padding:
+        35px
+        7vw
+        0;
+
+    overflow: hidden;
+}
+
+
+/* =====================================================
+   DOTTED BACKGROUND
+===================================================== */
+
+.contact-page::before {
+
+    content: "";
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: -10;
+
+    background-image:
+        radial-gradient(
+            circle,
+            rgba(0, 0, 0, 0.18) 0.65px,
+            transparent 0.8px
+        );
+
+    background-size:
+        18px 18px;
+
+    background-position:
+        0 0;
+
+    opacity: 0.38;
+}
+
+
+/* =====================================================
+   SOFT CENTER GLOW
+===================================================== */
+
+.contact-page::after {
+
+    content: "";
+
+    position: fixed;
+
+    width: 750px;
+    height: 750px;
+
+    left: 50%;
+    top: 45%;
+
+    transform:
+        translate(-50%, -50%);
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255, 255, 255, 0.82),
+            rgba(255, 255, 255, 0.4) 35%,
+            transparent 70%
+        );
+
+    pointer-events: none;
+
+    z-index: -8;
+
+    transition:
+        transform
+        2s
+        cubic-bezier(.16,1,.3,1);
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.contact-header {
+
+    position: relative;
+
+    width: 100%;
+
+    height: 55px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    z-index: 50;
+
+    opacity: 0;
+
+    transform:
+        translateY(-18px);
+
+    animation:
+        headerReveal
+        1.4s
+        cubic-bezier(.16,1,.3,1)
+        0.1s
+        forwards;
+}
+
+
+@keyframes headerReveal {
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+/* =====================================================
+   LOGO
+===================================================== */
+
+.contact-logo {
+
+    position: absolute;
+
+    left: 0;
+
+    top: 50%;
+
+    transform:
+        translateY(-50%);
+
+    color: #111;
+
+    text-decoration: none;
+
+    font-size: 17px;
+
+    font-weight: 500;
+
+    letter-spacing: 5px;
+
+    line-height: 1;
+
+    transition:
+        letter-spacing
+        0.5s
+        ease;
+}
+
+
+.contact-logo:hover {
+
+    letter-spacing: 7px;
+}
+
+
+/* =====================================================
+   NAVIGATION
+===================================================== */
+
+.contact-nav {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 50px;
+}
+
+
+.contact-nav a {
+
+    position: relative;
+
+    color: #777;
+
+    text-decoration: none;
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+    transition:
+        color
+        0.4s
+        ease;
+}
+
+
+.contact-nav a:hover,
+.contact-nav a.active {
+
+    color: #111;
+}
+
+
+.contact-nav a::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    bottom: -8px;
+
+    width: 0;
+
+    height: 1px;
+
+    background: #111;
+
+    transition:
+        width
+        0.5s
+        cubic-bezier(.16,1,.3,1);
+}
+
+
+.contact-nav a:hover::after,
+.contact-nav a.active::after {
+
+    width: 100%;
+}
+
+
+/* =====================================================
+   CROSS BACKGROUND
+===================================================== */
+
+.cross-lines {
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: 0;
+
+    opacity: 0;
+
+    animation:
+        crossReveal
+        2.5s
+        cubic-bezier(.16,1,.3,1)
+        0.7s
+        forwards;
+}
+
+
+@keyframes crossReveal {
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+.line {
+
+    position: absolute;
+
+    display: block;
+
+    height: 1px;
+
+    background:
+        rgba(0,0,0,0.075);
+
+    transform-origin: center;
+}
+
+
+.line-one {
+
+    width: 135%;
+
+    left: -18%;
+
+    top: 48%;
+
+    transform:
+        rotate(27deg);
+}
+
+
+.line-two {
+
+    width: 135%;
+
+    left: -18%;
+
+    top: 48%;
+
+    transform:
+        rotate(-27deg);
+}
+
+
+.line-three {
+
+    width: 110%;
+
+    left: -5%;
+
+    top: 20%;
+
+    transform:
+        rotate(-8deg);
+}
+
+
+.line-four {
+
+    width: 110%;
+
+    left: -5%;
+
+    top: 80%;
+
+    transform:
+        rotate(8deg);
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.contact-hero {
+
+    position: relative;
+
+    width: 100%;
+
+    max-width: 1380px;
+
+    min-height: 680px;
+
+    margin:
+        80px
+        auto
+        0;
+
+    display: grid;
+
+    grid-template-columns:
+        0.9fr
+        1.1fr;
+
+    gap: 8vw;
+
+    /*
+       IMPORTANT:
+       Keeps both sides vertically centered.
+    */
+
+    align-items: center;
+
+    z-index: 2;
+}
+
+
+/* =====================================================
+   LEFT CONTENT
+===================================================== */
+
+.contact-intro {
+
+    position: relative;
+
+    max-width: 600px;
+
+    opacity: 0;
+
+    transform:
+        translateY(55px);
+
+    animation:
+        contentReveal
+        1.7s
+        cubic-bezier(.16,1,.3,1)
+        0.45s
+        forwards;
+}
+
+
+@keyframes contentReveal {
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+/* =====================================================
+   EYEBROW
+===================================================== */
+
+.eyebrow {
+
+    display: block;
+
+    margin-bottom: 25px;
+
+    color: #888;
+
+    font-size: 8px;
+
+    letter-spacing: 5px;
+
+    text-transform: uppercase;
+}
+
+
+/* =====================================================
+   MAIN TITLE
+===================================================== */
+
+.contact-intro h1 {
+
+    font-family:
+        "Playfair Display",
+        Georgia,
+        serif;
+
+    font-size:
+        clamp(
+            80px,
+            9vw,
+            145px
+        );
+
+    font-weight: 400;
+
+    line-height: 0.78;
+
+    letter-spacing: -7px;
+
+    margin-bottom: 45px;
+}
+
+
+.contact-intro h1 span {
+
+    color: #888;
+
+    font-style: italic;
+}
+
+
+/* =====================================================
+   INTRO LINE
+===================================================== */
+
+.intro-line {
+
+    width: 100%;
+
+    height: 1px;
+
+    background:
+        rgba(0,0,0,0.13);
+
+    margin-bottom: 28px;
+}
+
+
+/* =====================================================
+   DESCRIPTION
+===================================================== */
+
+.contact-description {
+
+    max-width: 560px;
+
+    color: #555;
+
+    font-size: 14px;
+
+    line-height: 1.8;
+
+    font-weight: 300;
+
+    margin-bottom: 20px;
+}
+
+
+.contact-description.small {
+
+    color: #888;
+
+    font-size: 12px;
+
+    max-width: 470px;
+
+    margin-bottom: 45px;
+}
+
+
+/* =====================================================
+   NEW CONTACT ICON AREA
+===================================================== */
+
+.contact-icons {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 22px;
+
+    height: 70px;
+}
+
+
+/* =====================================================
+   CONTACT ICON CIRCLE
+===================================================== */
+
+.contact-icon {
+
+    position: relative;
+
+    width: 48px;
+
+    height: 48px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border:
+        1px solid
+        rgba(0,0,0,0.15);
+
+    border-radius: 50%;
+
+    color: #222;
+
+    text-decoration: none;
+
+    background:
+        rgba(255,255,255,0.25);
+
+    transition:
+        transform
+        0.5s
+        cubic-bezier(.16,1,.3,1),
+
+        border-color
+        0.5s
+        ease,
+
+        box-shadow
+        0.5s
+        ease,
+
+        background
+        0.5s
+        ease;
+}
+
+
+/* =====================================================
+   SVG
+===================================================== */
+
+.contact-icon svg {
+
+    width: 19px;
+
+    height: 19px;
+
+    fill: none;
+
+    stroke: currentColor;
+
+    stroke-width: 1.5;
+
+    stroke-linecap: round;
+
+    stroke-linejoin: round;
+
+    transition:
+        transform
+        0.5s
+        cubic-bezier(.16,1,.3,1);
+}
+
+
+/* =====================================================
+   HOVER POP + GLOW
+===================================================== */
+
+.contact-icon:hover {
+
+    transform:
+        translateY(-8px)
+        scale(1.12);
+
+    border-color:
+        rgba(0,0,0,0.55);
+
+    background:
+        rgba(255,255,255,0.8);
+
+    box-shadow:
+
+        0 10px 25px
+        rgba(0,0,0,0.08),
+
+        0 0 25px
+        rgba(0,0,0,0.08);
+}
+
+
+.contact-icon:hover svg {
+
+    transform:
+        scale(1.12);
+}
+
+
+/* =====================================================
+   TOOLTIP
+===================================================== */
+
+.contact-icon::after {
+
+    content: attr(data-tooltip);
+
+    position: absolute;
+
+    left: 50%;
+
+    bottom: calc(100% + 14px);
+
+    transform:
+        translateX(-50%)
+        translateY(8px);
+
+    padding:
+        7px
+        11px;
+
+    background: #111;
+
+    color: #fff;
+
+    font-family:
+        "DM Sans",
+        sans-serif;
+
+    font-size: 9px;
+
+    font-style: normal;
+
+    letter-spacing: 0.5px;
+
+    white-space: nowrap;
+
+    border-radius: 3px;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition:
+        opacity
+        0.35s
+        ease,
+
+        transform
+        0.35s
+        cubic-bezier(.16,1,.3,1);
+}
+
+
+/* small tooltip arrow */
+
+.contact-icon::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+
+    bottom: calc(100% + 8px);
+
+    width: 7px;
+
+    height: 7px;
+
+    background: #111;
+
+    transform:
+        translateX(-50%)
+        rotate(45deg);
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition:
+        opacity
+        0.35s
+        ease;
+}
+
+
+.contact-icon:hover::after {
+
+    opacity: 1;
+
+    transform:
+        translateX(-50%)
+        translateY(0);
+}
+
+
+.contact-icon:hover::before {
+
+    opacity: 1;
+}
+
+
+/* =====================================================
+   RIGHT ART
+===================================================== */
+
+.contact-art {
+
+    position: relative;
+
+    min-height: 600px;
+
+    /*
+       IMPORTANT:
+       Prevents the artwork from being pushed
+       by the height of the left contact content.
+    */
+
+    height: 600px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    align-self: center;
+
+    opacity: 0;
+
+    transform:
+        translateX(60px)
+        scale(0.96);
+
+    animation:
+        artReveal
+        2s
+        cubic-bezier(.16,1,.3,1)
+        0.65s
+        forwards;
+}
+
+
+@keyframes artReveal {
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateX(0)
+            scale(1);
+    }
+}
+
+
+/* =====================================================
+   SIGNAL LINE
+===================================================== */
+
+.contact-art::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 330px;
+
+    height: 1px;
+
+    left: 50%;
+
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    background:
+        linear-gradient(
+            to right,
+            transparent,
+            rgba(0,0,0,0.35),
+            transparent
+        );
+
+    opacity: 0.7;
+
+    z-index: 4;
+
+    animation:
+        signalLine
+        4s
+        ease-in-out
+        infinite;
+}
+
+
+@keyframes signalLine {
+
+    0%,
+    100% {
+
+        width: 280px;
+
+        opacity: 0.35;
+    }
+
+    50% {
+
+        width: 380px;
+
+        opacity: 0.75;
+    }
+}
+
+
+/* =====================================================
+   SIGNAL POINT
+===================================================== */
+
+.contact-art::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 6px;
+
+    height: 6px;
+
+    left: 50%;
+
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    background: #111;
+
+    z-index: 6;
+
+    box-shadow:
+
+        0 0 0 5px
+        rgba(0,0,0,0.035),
+
+        0 0 0 12px
+        rgba(0,0,0,0.015);
+
+    animation:
+        signalPulse
+        3s
+        ease-in-out
+        infinite;
+}
+
+
+@keyframes signalPulse {
+
+    0%,
+    100% {
+
+        transform:
+            translate(-50%, -50%)
+            scale(0.8);
+
+        opacity: 0.5;
+    }
+
+    50% {
+
+        transform:
+            translate(-50%, -50%)
+            scale(1.3);
+
+        opacity: 1;
+    }
+}
+
+
+/* =====================================================
+   ORBIT SYSTEM
+===================================================== */
+
+.orbit {
+
+    position: absolute;
+
+    border:
+        1px solid
+        rgba(0,0,0,0.13);
+
+    border-radius: 50%;
+
+    pointer-events: none;
+}
+
+
+/* =====================================================
+   OUTER ORBIT
+===================================================== */
+
+.orbit-one {
+
+    width: 450px;
+
+    height: 450px;
+
+    transform:
+        rotate(18deg);
+
+    animation:
+        orbitFloat
+        12s
+        ease-in-out
+        infinite;
+}
+
+
+/* =====================================================
+   MIDDLE ORBIT
+===================================================== */
+
+.orbit-two {
+
+    width: 370px;
+
+    height: 370px;
+
+    transform:
+        rotate(-25deg)
+        scaleX(0.72);
+
+    animation:
+        orbitFloatTwo
+        15s
+        ease-in-out
+        infinite;
+}
+
+
+/* =====================================================
+   INNER ORBIT
+===================================================== */
+
+.orbit-three {
+
+    width: 270px;
+
+    height: 270px;
+
+    transform:
+        rotate(40deg)
+        scaleY(0.7);
+
+    border-color:
+        rgba(0,0,0,0.09);
+
+    animation:
+        orbitFloatThree
+        10s
+        ease-in-out
+        infinite;
+}
+
+
+/* =====================================================
+   ORBIT ANIMATIONS
+===================================================== */
+
+@keyframes orbitFloat {
+
+    0%,
+    100% {
+
+        transform:
+            rotate(18deg)
+            scale(1);
+    }
+
+    50% {
+
+        transform:
+            rotate(25deg)
+            scale(1.025);
+    }
+}
+
+
+@keyframes orbitFloatTwo {
+
+    0%,
+    100% {
+
+        transform:
+            rotate(-25deg)
+            scaleX(0.72);
+    }
+
+    50% {
+
+        transform:
+            rotate(-18deg)
+            scaleX(0.76);
+    }
+}
+
+
+@keyframes orbitFloatThree {
+
+    0%,
+    100% {
+
+        transform:
+            rotate(40deg)
+            scaleY(0.7);
+    }
+
+    50% {
+
+        transform:
+            rotate(32deg)
+            scaleY(0.74);
+    }
+}
+
+
+/* =====================================================
+   ART CROSS
+===================================================== */
+
+.art-cross {
+
+    position: absolute;
+
+    width: 470px;
+
+    height: 470px;
+
+    pointer-events: none;
+
+    opacity: 0.65;
+}
+
+
+.art-cross span {
+
+    position: absolute;
+
+    left: 50%;
+
+    top: 50%;
+
+    width: 100%;
+
+    height: 1px;
+
+    background:
+        rgba(0,0,0,0.08);
+
+    transform-origin: center;
+}
+
+
+.art-cross span:first-child {
+
+    transform:
+        translate(-50%,-50%)
+        rotate(45deg);
+}
+
+
+.art-cross span:last-child {
+
+    transform:
+        translate(-50%,-50%)
+        rotate(-45deg);
+}
+
+
+/* =====================================================
+   CENTER POINT
+===================================================== */
+
+.orbit-center {
+
+    position: absolute;
+
+    width: 10px;
+
+    height: 10px;
+
+    left: 50%;
+
+    top: 50%;
+
+    transform:
+        translate(-50%,-50%);
+
+    border:
+        1px solid #111;
+
+    border-radius: 50%;
+
+    background:
+        #f7f7f5;
+
+    z-index: 7;
+}
+
+
+.orbit-center span {
+
+    position: absolute;
+
+    width: 3px;
+
+    height: 3px;
+
+    left: 50%;
+
+    top: 50%;
+
+    transform:
+        translate(-50%,-50%);
+
+    background:
+        #111;
+
+    border-radius: 50%;
+}
+
+
+/* =====================================================
+   VERTICAL TEXT
+===================================================== */
+
+.vertical-text {
+
+    position: absolute;
+
+    right: -15px;
+
+    top: 50%;
+
+    color: #aaa;
+
+    font-size: 6px;
+
+    letter-spacing: 4px;
+
+    writing-mode:
+        vertical-rl;
+
+    transform:
+        translateY(-50%);
+}
+
+
+/* =====================================================
+   ORBITING DOT
+===================================================== */
+
+.orbit-dot {
+
+    position: absolute;
+
+    width: 7px;
+
+    height: 7px;
+
+    border-radius: 50%;
+
+    background:
+        #111;
+
+    top: 50%;
+
+    left: 50%;
+
+    transform:
+        translate(-50%,-50%)
+        translateX(225px);
+
+    animation:
+        orbitDot
+        8s
+        linear
+        infinite;
+}
+
+
+@keyframes orbitDot {
+
+    from {
+
+        transform:
+            translate(-50%,-50%)
+            rotate(0deg)
+            translateX(225px);
+    }
+
+    to {
+
+        transform:
+            translate(-50%,-50%)
+            rotate(360deg)
+            translateX(225px);
+    }
+}
+
+
+/* =====================================================
+   BOTTOM
+===================================================== */
+
+.contact-bottom {
+
+    position: relative;
+
+    width: 100%;
+
+    max-width: 1380px;
+
+    margin:
+        70px
+        auto
+        0;
+
+    padding:
+        30px
+        0;
+
+    border-top:
+        1px solid
+        rgba(0,0,0,0.12);
+
+    display: grid;
+
+    grid-template-columns:
+        80px
+        1fr
+        auto;
+
+    align-items: center;
+
+    z-index: 3;
+
+    opacity: 0;
+
+    transform:
+        translateY(30px);
+
+    animation:
+        bottomReveal
+        1.4s
+        cubic-bezier(.16,1,.3,1)
+        1.3s
+        forwards;
+}
+
+
+@keyframes bottomReveal {
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+.bottom-number {
+
+    color: #999;
+
+    font-size: 8px;
+
+    letter-spacing: 3px;
+}
+
+
+.bottom-message {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 7px;
+}
+
+
+.bottom-message span {
+
+    color: #999;
+
+    font-size: 7px;
+
+    letter-spacing: 4px;
+}
+
+
+.bottom-message strong {
+
+    font-family:
+        "Cormorant Garamond",
+        Georgia,
+        serif;
+
+    font-size: 25px;
+
+    font-weight: 400;
+
+    font-style: italic;
+
+    letter-spacing: 0.2px;
+}
+
+
+.bottom-time {
+
+    color: #999;
+
+    font-size: 8px;
+
+    letter-spacing: 4px;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.contact-footer {
+
+    position: relative;
+
+    width: 100%;
+
+    padding:
+        30px
+        0;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    border-top:
+        1px solid
+        rgba(0,0,0,0.1);
+
+    color: #999;
+
+    font-size: 7px;
+
+    letter-spacing: 4px;
+
+    z-index: 3;
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 1100px) {
+
+    .contact-page {
+
+        padding:
+            30px
+            35px
+            0;
+    }
+
+
+    .contact-hero {
+
+        grid-template-columns:
+            1fr;
+
+        gap: 70px;
+
+        margin-top: 70px;
+    }
+
+
+    .contact-intro {
+
+        max-width: 800px;
+    }
+
+
+    .contact-art {
+
+        min-height: 550px;
+
+        height: 550px;
+
+        max-width: 650px;
+
+        margin:
+            0 auto;
+
+        width: 100%;
+    }
+
+
+    .contact-bottom {
+
+        margin-top: 60px;
+    }
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 700px) {
+
+    .contact-page {
+
+        padding:
+            25px
+            20px
+            0;
+    }
+
+
+    /* HEADER */
+
+    .contact-header {
+
+        justify-content:
+            flex-end;
+    }
+
+
+    .contact-logo {
+
+        font-size: 15px;
+    }
+
+
+    .contact-nav {
+
+        gap: 17px;
+    }
+
+
+    .contact-nav a {
+
+        font-size: 7px;
+
+        letter-spacing: 1px;
+    }
+
+
+    /* HERO */
+
+    .contact-hero {
+
+        margin-top: 60px;
+
+        gap: 60px;
+    }
+
+
+    /* TITLE */
+
+    .contact-intro h1 {
+
+        font-size: 80px;
+
+        letter-spacing: -5px;
+    }
+
+
+    /* DESCRIPTION */
+
+    .contact-description {
+
+        font-size: 13px;
+    }
+
+
+    /* ICONS */
+
+    .contact-icons {
+
+        gap: 18px;
+    }
+
+
+    .contact-icon {
+
+        width: 45px;
+
+        height: 45px;
+    }
+
+
+    /* ART */
+
+    .contact-art {
+
+        min-height: 500px;
+
+        height: 500px;
+    }
+
+
+    /* ORBITS */
+
+    .orbit-one {
+
+        width: 340px;
+
+        height: 340px;
+    }
+
+
+    .orbit-two {
+
+        width: 285px;
+
+        height: 285px;
+    }
+
+
+    .orbit-three {
+
+        width: 210px;
+
+        height: 210px;
+    }
+
+
+    /* CROSS */
+
+    .art-cross {
+
+        width: 350px;
+
+        height: 350px;
+    }
+
+
+    /* SIGNAL */
+
+    .contact-art::before {
+
+        width: 240px;
+    }
+
+
+    @keyframes signalLine {
+
+        0%,
+        100% {
+
+            width: 210px;
+
+            opacity: 0.3;
+        }
+
+        50% {
+
+            width: 300px;
+
+            opacity: 0.7;
+        }
+    }
+
+
+    /* VERTICAL TEXT */
+
+    .vertical-text {
+
+        display: none;
+    }
+
+
+    /* ORBIT DOT */
+
+    .orbit-dot {
+
+        transform:
+            translate(-50%,-50%)
+            translateX(170px);
+    }
+
+
+    /* BOTTOM */
+
+    .contact-bottom {
+
+        grid-template-columns:
+            45px
+            1fr;
+
+        gap: 15px;
+    }
+
+
+    .bottom-time {
+
+        display: none;
+    }
+
+
+    .bottom-message strong {
+
+        font-size: 22px;
+    }
+
+
+    /* FOOTER */
+
+    .contact-footer {
+
+        flex-direction:
+            column;
+
+        align-items:
+            center;
+
+        gap: 15px;
+
+        text-align: center;
+    }
+}
+
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media (max-width: 450px) {
+
+    .contact-page {
+
+        padding:
+            20px
+            16px
+            0;
+    }
+
+
+    /* HEADER */
+
+    .contact-logo {
+
+        font-size: 14px;
+
+        letter-spacing: 4px;
+    }
+
+
+    .contact-nav {
+
+        gap: 10px;
+    }
+
+
+    .contact-nav a {
+
+        font-size: 6px;
+
+        letter-spacing: 1px;
+    }
+
+
+    /* TITLE */
+
+    .contact-intro h1 {
+
+        font-size: 68px;
+
+        letter-spacing: -4px;
+    }
+
+
+    /* DESCRIPTION */
+
+    .contact-description {
+
+        font-size: 12px;
+
+        line-height: 1.7;
+    }
+
+
+    /* ICONS */
+
+    .contact-icons {
+
+        gap: 15px;
+    }
+
+
+    .contact-icon {
+
+        width: 43px;
+
+        height: 43px;
+    }
+
+
+    .contact-icon svg {
+
+        width: 17px;
+
+        height: 17px;
+    }
+
+
+    /* ART */
+
+    .contact-art {
+
+        min-height: 420px;
+
+        height: 420px;
+    }
+
+
+    /* ORBITS */
+
+    .orbit-one {
+
+        width: 280px;
+
+        height: 280px;
+    }
+
+
+    .orbit-two {
+
+        width: 230px;
+
+        height: 230px;
+    }
+
+
+    .orbit-three {
+
+        width: 170px;
+
+        height: 170px;
+    }
+
+
+    /* CROSS */
+
+    .art-cross {
+
+        width: 290px;
+
+        height: 290px;
+    }
+
+
+    /* SIGNAL */
+
+    .contact-art::before {
+
+        width: 190px;
+    }
+
+
+    @keyframes signalLine {
+
+        0%,
+        100% {
+
+            width: 170px;
+
+            opacity: 0.3;
+        }
+
+        50% {
+
+            width: 230px;
+
+            opacity: 0.65;
+        }
+    }
+
+
+    /* ORBIT DOT */
+
+    .orbit-dot {
+
+        transform:
+            translate(-50%,-50%)
+            translateX(140px);
+    }
+
+
+    /* BOTTOM */
+
+    .bottom-message strong {
+
+        font-size: 19px;
+    }
+}
+
+
+/* =====================================================
+   REDUCE MOTION
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+
+        animation-duration:
+            0.01ms !important;
+
+        animation-iteration-count:
+            1 !important;
+
+        transition-duration:
+            0.01ms !important;
+
+        scroll-behavior:
+            auto !important;
+    }
+}

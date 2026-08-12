@@ -1,10 +1,13 @@
+/* =====================================================
+   GOOGLE FONT
+===================================================== */
+
 @import url('https://fonts.googleapis.com/css2?family=Ribeye&display=swap');
 
 
-
-/* =========================================
+/* =====================================================
    RESET
-========================================= */
+===================================================== */
 
 * {
     margin: 0;
@@ -25,41 +28,239 @@ body {
     color: #111;
 
     overflow-x: hidden;
+
+    font-family: Arial, sans-serif;
 }
 
-/* =========================================
-   DOTTED BACKGROUND
-========================================= */
 
-.dotted-background {
+/* =====================================================
+   PAGE
+===================================================== */
+
+.about-page {
+    position: relative;
+
+    width: 100%;
+    min-height: 100vh;
+
+    padding: 35px 7vw 0;
+
+    isolation: isolate;
+}
+
+
+/*
+   Keep page content above dotted background
+*/
+
+.about-page > * {
+    position: relative;
+
+    z-index: 2;
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.about-header {
+    position: relative;
+
+    width: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    height: 55px;
+
+    z-index: 50;
+
+    animation:
+        cinematicHeader
+        1.4s
+        cubic-bezier(.16, 1, .3, 1)
+        both;
+}
+
+
+@keyframes cinematicHeader {
+
+    0% {
+        opacity: 0;
+
+        transform:
+            translateY(-25px);
+
+        filter:
+            blur(8px);
+    }
+
+    60% {
+        opacity: 0.8;
+
+        filter:
+            blur(2px);
+    }
+
+    100% {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+
+        filter:
+            blur(0);
+    }
+}
+
+
+/* =====================================================
+   LOGO
+===================================================== */
+
+.about-logo {
+    position: absolute;
+
+    left: 0;
+
+    color: #111;
+
+    text-decoration: none;
+
+    font-size: 17px;
+
+    font-weight: 500;
+
+    letter-spacing: 5px;
+}
+
+
+/* =====================================================
+   NAVIGATION
+===================================================== */
+
+.about-nav {
+    display: flex;
+
+    align-items: center;
+
+    gap: 50px;
+}
+
+
+.about-nav a {
+    position: relative;
+
+    color: #777;
+
+    text-decoration: none;
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+    transition:
+        color 0.3s ease;
+}
+
+
+.about-nav a:hover,
+.about-nav a.active {
+    color: #111;
+}
+
+
+.about-nav a::after {
+    content: "";
 
     position: absolute;
 
+    left: 0;
+
+    bottom: -8px;
+
+    width: 0;
+
+    height: 1px;
+
+    background: #111;
+
+    transition:
+        width 0.35s ease;
+}
+
+
+.about-nav a:hover::after,
+.about-nav a.active::after {
+    width: 100%;
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.about-hero {
+    width: 100%;
+
+    max-width: 1380px;
+
+    margin: 85px auto 0;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(400px, 0.9fr)
+        minmax(500px, 1.1fr);
+
+    gap: 9vw;
+
+    align-items: center;
+
+    min-height: 650px;
+}
+
+
+/* =====================================================
+   DOTTED BACKGROUND
+===================================================== */
+
+.dotted-background {
+
+    position: fixed;
+
     top: 0;
+
     left: 0;
 
     width: 100%;
+
     height: 100%;
 
-    z-index: -1;
+    z-index: -10;
 
     pointer-events: none;
 
-    background-image: radial-gradient(
-        rgba(0, 0, 0, 0.18) 1px,
-        transparent 1px
-    );
+    background-image:
+        radial-gradient(
+            rgba(0, 0, 0, 0.18) 1px,
+            transparent 1px
+        );
 
-    background-size: 14px 14px;
+    background-size:
+        14px 14px;
 
     opacity: 0.25;
 }
 
 
-
-/* =========================================
-   HEADER
-========================================= */
+/* =====================================================
+   HEADER / HERO
+===================================================== */
 
 .thought-header {
 
@@ -69,18 +270,53 @@ body {
 
     margin: auto;
 
-    padding-top: 90px;
+    padding-top: 75px;
 
     padding-bottom: 100px;
+
+    opacity: 0;
+
+    transform:
+        translateY(45px);
+
+    animation:
+        cinematicHeader
+        1.7s
+        cubic-bezier(.16,1,.3,1)
+        0.35s
+        forwards;
 }
 
 
+@keyframes cinematicHeader {
 
-/* Small heading */
+    0% {
+
+        opacity: 0;
+
+        transform:
+            translateY(45px);
+    }
+
+    100% {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+/* =====================================================
+   EYEBROW
+===================================================== */
 
 .eyebrow {
 
-    font-family: Arial, sans-serif;
+    font-family:
+        Arial,
+        sans-serif;
 
     font-size: 11px;
 
@@ -89,6 +325,30 @@ body {
     color: #78808b;
 
     margin-bottom: 25px;
+
+    opacity: 0;
+
+    transform:
+        translateY(15px);
+
+    animation:
+        smallReveal
+        1s
+        cubic-bezier(.16,1,.3,1)
+        0.8s
+        forwards;
+}
+
+
+@keyframes smallReveal {
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
 }
 
 
@@ -110,25 +370,37 @@ body {
 }
 
 
-
-/* Main heading */
+/* =====================================================
+   MAIN HEADING
+===================================================== */
 
 .thought-header h1 {
 
-    font-family: "Ribeye", Georgia, serif;
+    font-family:
+        "Ribeye",
+        Georgia,
+        serif;
 
-    font-size: clamp(45px, 5vw, 78px);
+    font-size:
+        clamp(
+            45px,
+            5vw,
+            78px
+        );
 
     font-weight: 400;
 
     line-height: 1.1;
 
     letter-spacing: 1px;
+
+    overflow: hidden;
 }
 
 
-
-/* Description */
+/* =====================================================
+   INTRO
+===================================================== */
 
 .intro {
 
@@ -136,7 +408,9 @@ body {
 
     max-width: 480px;
 
-    font-family: Arial, sans-serif;
+    font-family:
+        Arial,
+        sans-serif;
 
     font-size: 13px;
 
@@ -145,13 +419,24 @@ body {
     letter-spacing: 1px;
 
     color: #777;
+
+    opacity: 0;
+
+    transform:
+        translateY(15px);
+
+    animation:
+        smallReveal
+        1.2s
+        cubic-bezier(.16,1,.3,1)
+        1s
+        forwards;
 }
 
 
-
-/* =========================================
+/* =====================================================
    GALLERY
-========================================= */
+===================================================== */
 
 .thought-gallery {
 
@@ -170,13 +455,16 @@ body {
     gap: 45px;
 
     padding-bottom: 180px;
+
+    position: relative;
+
+    z-index: 5;
 }
 
 
-
-/* =========================================
+/* =====================================================
    CARD
-========================================= */
+===================================================== */
 
 .thought-card {
 
@@ -187,48 +475,113 @@ body {
     min-width: 0;
 
     cursor: pointer;
+
+    outline: none;
+
+    opacity: 0;
+
+    /*
+       IMPORTANT:
+       No transform remains after entrance.
+       Therefore hover/click cannot move card.
+    */
+
+    animation:
+        cardEntrance
+        1.5s
+        cubic-bezier(.16,1,.3,1)
+        forwards;
 }
 
 
-
-/* =========================================
-   ZIG-ZAG
-========================================= */
+/* =====================================================
+   CINEMATIC CARD ENTRANCE
+===================================================== */
 
 .card-1 {
 
     margin-top: 0;
+
+    animation-delay:
+        0.9s;
 }
 
 
 .card-2 {
 
     margin-top: 75px;
+
+    animation-delay:
+        1.05s;
 }
 
 
 .card-3 {
 
     margin-top: 25px;
+
+    animation-delay:
+        1.2s;
 }
 
 
 .card-4 {
 
     margin-top: 95px;
+
+    animation-delay:
+        1.35s;
 }
 
 
 .card-5 {
 
     margin-top: 45px;
+
+    animation-delay:
+        1.5s;
 }
 
 
+@keyframes cardEntrance {
 
-/* =========================================
+    0% {
+
+        opacity: 0;
+
+        transform:
+            translateY(45px)
+            scale(0.96);
+
+        filter:
+            blur(4px);
+    }
+
+    70% {
+
+        opacity: 0.8;
+
+        filter:
+            blur(1px);
+    }
+
+    100% {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+
+        filter:
+            blur(0);
+    }
+}
+
+
+/* =====================================================
    IMAGE BOX
-========================================= */
+===================================================== */
 
 .image-box {
 
@@ -236,20 +589,26 @@ body {
 
     width: 100%;
 
-    aspect-ratio: 0.76;
+    aspect-ratio:
+        0.76;
 
     overflow: hidden;
 
     border-radius: 6px;
 
     background: #ddd;
+
+    /*
+       Keeps popup inside image
+    */
+
+    isolation: isolate;
 }
 
 
-
-/* =========================================
+/* =====================================================
    IMAGE
-========================================= */
+===================================================== */
 
 .image-box img {
 
@@ -261,34 +620,71 @@ body {
 
     object-fit: cover;
 
+    /*
+       ONLY IMAGE gets transformed.
+       Card/image-box never moves.
+    */
+
+    transform:
+        scale(1);
+
     transition:
-        transform 1s cubic-bezier(.2,.7,.2,1),
-        filter 0.8s ease;
+
+        transform
+        1s
+        cubic-bezier(.2,.7,.2,1),
+
+        filter
+        0.8s
+        ease;
 }
 
 
+/* =====================================================
+   IMAGE POPUP
+   HOVER + CLICK
+===================================================== */
 
-/* =========================================
-   IMAGE HOVER
-========================================= */
+/*
+   Hover:
+*/
 
 .thought-card:hover
 .image-box img {
 
-    transform: scale(1.12);
+
+    transform:
+        scale(1.12);
+
 
     filter:
-
         blur(5px)
-
         brightness(0.55);
 }
 
 
+/*
+   CLICK / FOCUS:
+   Requires tabindex="0" on article
+*/
 
-/* =========================================
+.thought-card:focus
+.image-box img {
+
+
+    transform:
+        scale(1.12);
+
+
+    filter:
+        blur(5px)
+        brightness(0.55);
+}
+
+
+/* =====================================================
    DARK OVERLAY
-========================================= */
+===================================================== */
 
 .overlay {
 
@@ -296,26 +692,39 @@ body {
 
     inset: 0;
 
-    background: rgba(0, 0, 0, 0.35);
+    z-index: 2;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(0,0,0,0.05),
+            rgba(0,0,0,0.55)
+        );
 
     opacity: 0;
 
+    pointer-events: none;
+
     transition:
-        opacity 0.8s ease;
+        opacity
+        0.7s
+        ease;
 }
 
 
 .thought-card:hover
+.overlay,
+
+.thought-card:focus
 .overlay {
 
     opacity: 1;
 }
 
 
-
-/* =========================================
-   QUOTE
-========================================= */
+/* =====================================================
+   QUOTE POPUP
+===================================================== */
 
 .quote {
 
@@ -341,29 +750,51 @@ body {
 
     opacity: 0;
 
-    transform: translateY(20px);
+    transform:
+        translateY(15px)
+        scale(0.96);
+
+    pointer-events: none;
 
     transition:
-        opacity 0.6s ease,
-        transform 0.6s ease;
+
+        opacity
+        0.6s
+        cubic-bezier(.16,1,.3,1),
+
+        transform
+        0.7s
+        cubic-bezier(.16,1,.3,1);
 }
 
 
+/* =====================================================
+   QUOTE POPUP ACTIVE
+===================================================== */
+
 .thought-card:hover
+.quote,
+
+.thought-card:focus
 .quote {
 
     opacity: 1;
 
-    transform: translateY(0);
+    transform:
+        translateY(0)
+        scale(1);
 }
 
 
-
-/* Quote number */
+/* =====================================================
+   QUOTE NUMBER
+===================================================== */
 
 .quote span {
 
-    font-family: Arial, sans-serif;
+    font-family:
+        Arial,
+        sans-serif;
 
     font-size: 10px;
 
@@ -375,14 +806,22 @@ body {
 }
 
 
-
-/* Quote text */
+/* =====================================================
+   QUOTE TEXT
+===================================================== */
 
 .quote p {
 
-    font-family: Georgia, serif;
+    font-family:
+        Georgia,
+        serif;
 
-    font-size: clamp(17px, 1.4vw, 25px);
+    font-size:
+        clamp(
+            17px,
+            1.4vw,
+            25px
+        );
 
     line-height: 1.45;
 
@@ -390,10 +829,9 @@ body {
 }
 
 
-
-/* =========================================
-   FLOATING TITLE
-========================================= */
+/* =====================================================
+   FLOATING LABEL
+===================================================== */
 
 .floating-label {
 
@@ -407,19 +845,30 @@ body {
 
     min-width: 145px;
 
-    padding: 17px 20px;
+    padding:
+        17px 20px;
 
-    /* Slightly transparent */
-    background: rgba(250, 250, 248, 0.70);
+    background:
+        rgba(
+            250,
+            250,
+            248,
+            0.70
+        );
 
-    /* Glass effect */
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter:
+        blur(8px);
 
-    border: 1px solid rgba(255, 255, 255, 0.45);
+    -webkit-backdrop-filter:
+        blur(8px);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.45);
 
     box-shadow:
-        0 12px 30px rgba(0, 0, 0, 0.08);
+        0 12px 30px
+        rgba(0,0,0,0.08);
 
     display: flex;
 
@@ -428,35 +877,57 @@ body {
     gap: 7px;
 
     transition:
-        transform 0.5s ease,
-        background 0.5s ease,
-        box-shadow 0.5s ease;
+
+        transform
+        0.5s
+        cubic-bezier(.16,1,.3,1),
+
+        background
+        0.5s
+        ease,
+
+        box-shadow
+        0.5s
+        ease;
 }
 
 
-/* =========================================
-   FLOATING LABEL HOVER
-========================================= */
+/* =====================================================
+   LABEL POP
+===================================================== */
 
 .thought-card:hover
+.floating-label,
+
+.thought-card:focus
 .floating-label {
 
-    transform: translateY(-7px);
+    transform:
+        translateY(-7px);
 
-    background: rgba(250, 250, 248, 0.78);
+    background:
+        rgba(
+            250,
+            250,
+            248,
+            0.82
+        );
 
     box-shadow:
-        0 20px 40px rgba(0, 0, 0, 0.14);
+        0 20px 40px
+        rgba(0,0,0,0.14);
 }
 
 
-/* =========================================
-   TITLE
-========================================= */
+/* =====================================================
+   FLOATING TITLE
+===================================================== */
 
 .floating-label strong {
 
-    font-family: Georgia, serif;
+    font-family:
+        Georgia,
+        serif;
 
     font-size: 18px;
 
@@ -468,13 +939,15 @@ body {
 }
 
 
-/* =========================================
+/* =====================================================
    SMALL TITLE
-========================================= */
+===================================================== */
 
 .floating-label small {
 
-    font-family: Arial, sans-serif;
+    font-family:
+        Arial,
+        sans-serif;
 
     font-size: 8px;
 
@@ -484,22 +957,22 @@ body {
 }
 
 
-/* =========================================
+/* =====================================================
    CARD INFORMATION
-========================================= */
+===================================================== */
 
 .card-info {
 
-    padding-top: 25px;
+    padding-top:
+        25px;
 }
 
 
-
-/* Main title */
-
 .card-info h2 {
 
-    font-family: Georgia, serif;
+    font-family:
+        Georgia,
+        serif;
 
     font-size: 22px;
 
@@ -509,24 +982,26 @@ body {
 }
 
 
-
-/* Meta */
-
 .meta {
 
     display: flex;
 
-    justify-content: space-between;
+    justify-content:
+        space-between;
 
-    align-items: center;
+    align-items:
+        center;
 
-    margin-top: 13px;
+    margin-top:
+        13px;
 }
 
 
 .meta span {
 
-    font-family: Arial, sans-serif;
+    font-family:
+        Arial,
+        sans-serif;
 
     font-size: 8px;
 
@@ -536,57 +1011,55 @@ body {
 }
 
 
+/* =====================================================
+   CLICK / FOCUS
+===================================================== */
 
-/* =========================================
-   SUBTLE CARD HOVER
-========================================= */
+/*
+   IMPORTANT:
+   No transform here.
 
-.thought-card {
+   This prevents the entire card
+   from jumping when clicked.
+*/
 
-    transition:
-        transform 0.6s ease;
+.thought-card:focus {
+
+    outline: none;
 }
 
 
+/*
+   REMOVED:
 
-/* Keep zig-zag + hover */
+   .thought-card:active .image-box {
+       transform: scale(0.995);
+   }
 
-.card-1:hover {
-
-    transform: translateY(-8px);
-}
-
-
-.card-2:hover {
-
-    transform: translateY(67px);
-}
+   That rule was moving the image box.
+*/
 
 
-.card-3:hover {
-
-    transform: translateY(17px);
-}
-
-
-.card-4:hover {
-
-    transform: translateY(87px);
-}
-
-
-.card-5:hover {
-
-    transform: translateY(37px);
-}
-
-
-
-/* =========================================
+/* =====================================================
    TABLET
-========================================= */
+===================================================== */
 
 @media (max-width: 1100px) {
+
+    .site-header {
+
+        height: 65px;
+    }
+
+
+    .site-nav a {
+
+        font-size: 9px;
+
+        padding:
+            5px 7px;
+    }
+
 
     .thought-gallery {
 
@@ -616,24 +1089,93 @@ body {
 
         font-size: 15px;
     }
-
 }
 
 
-
-/* =========================================
+/* =====================================================
    MOBILE
-========================================= */
+===================================================== */
 
 @media (max-width: 700px) {
+
+
+    /* =========================================
+       HEADER
+    ========================================= */
+
+    .site-header {
+
+        height: 55px;
+
+        /*
+           Still CENTERED.
+        */
+
+        display: flex;
+
+        justify-content:
+            center;
+
+        padding:
+            0;
+    }
+
+
+    .site-nav {
+
+        left: 50%;
+
+        top: 50%;
+
+        transform:
+            translate(-50%, -50%);
+
+        width: max-content;
+
+        gap: 0;
+    }
+
+
+    .site-nav a {
+
+        font-size: 7px;
+
+        letter-spacing: 1.5px;
+
+        padding:
+            5px 5px;
+    }
+
+
+    .site-nav a::after {
+
+        left: 5px;
+
+        width: 0;
+    }
+
+
+    .site-nav a:hover::after,
+    .site-nav a.active::after {
+
+        width:
+            calc(100% - 10px);
+    }
+
+
+    /* =========================================
+       HERO
+    ========================================= */
 
     .thought-header {
 
         width: 88%;
 
-        padding-top: 60px;
+        padding-top:
+            60px;
 
-        padding-bottom: 70px;
+        padding-bottom:
+            70px;
     }
 
 
@@ -643,54 +1185,272 @@ body {
     }
 
 
-    /*
-       On mobile we allow horizontal
-       scrolling instead of destroying
-       the desktop zig-zag design.
-    */
+    /* =========================================
+       GALLERY
+    ========================================= */
 
     .thought-gallery {
 
-        width: max-content;
+        width:
+            max-content;
 
-        margin-left: 8%;
+        margin-left:
+            8%;
 
         gap: 35px;
 
-        overflow: visible;
+        overflow:
+            visible;
+
+        padding-bottom:
+            150px;
     }
 
 
     .thought-card {
 
-        flex: 0 0 220px;
+        flex:
+            0 0 220px;
 
         width: 220px;
     }
 
 
+    /* =========================================
+       KEEP ZIG-ZAG
+    ========================================= */
+
     .card-1 {
+
         margin-top: 0;
     }
 
 
     .card-2 {
+
         margin-top: 60px;
     }
 
 
     .card-3 {
+
         margin-top: 20px;
     }
 
 
     .card-4 {
+
         margin-top: 70px;
     }
 
 
     .card-5 {
+
         margin-top: 35px;
     }
 
+
+    /* =========================================
+       IMAGE
+    ========================================= */
+
+    .image-box {
+
+        aspect-ratio:
+            0.76;
+    }
+
+
+    /* =========================================
+       QUOTE
+    ========================================= */
+
+    .quote {
+
+        padding:
+            25px;
+    }
+
+
+    .quote p {
+
+        font-size: 17px;
+
+        max-width:
+            190px;
+    }
+
+
+    /* =========================================
+       LABEL
+    ========================================= */
+
+    .floating-label {
+
+        left: -10px;
+
+        bottom: -15px;
+
+        min-width:
+            120px;
+
+        padding:
+            13px 15px;
+    }
+
+
+    .floating-label strong {
+
+        font-size: 15px;
+    }
+
+
+    .floating-label small {
+
+        font-size: 7px;
+
+        letter-spacing: 2px;
+    }
+}
+
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media (max-width: 450px) {
+
+
+    .site-header {
+
+        height: 55px;
+
+        padding: 0;
+    }
+
+
+    .site-nav {
+
+        left: 50%;
+
+        transform:
+            translate(-50%, -50%);
+    }
+
+
+    .site-nav a {
+
+        font-size: 6px;
+
+        letter-spacing: 1px;
+
+        padding:
+            5px 4px;
+    }
+
+
+    .thought-header {
+
+        width: 88%;
+
+        padding-top:
+            50px;
+    }
+
+
+    .thought-header h1 {
+
+        font-size: 36px;
+    }
+
+
+    .eyebrow {
+
+        font-size: 8px;
+
+        letter-spacing: 4px;
+    }
+
+
+    .intro {
+
+        font-size: 11px;
+    }
+
+
+    .thought-gallery {
+
+        margin-left:
+            7%;
+
+        gap: 25px;
+    }
+
+
+    .thought-card {
+
+        flex:
+            0 0 195px;
+
+        width: 195px;
+    }
+
+
+    .quote p {
+
+        font-size: 15px;
+
+        max-width:
+            165px;
+    }
+
+
+    .floating-label {
+
+        min-width:
+            105px;
+
+        padding:
+            11px 12px;
+    }
+
+
+    .floating-label strong {
+
+        font-size: 13px;
+    }
+
+
+    .floating-label small {
+
+        font-size: 6px;
+
+        letter-spacing:
+            1.5px;
+    }
+}
+
+
+/* =====================================================
+   REDUCE MOTION
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+
+        animation-duration:
+            0.01ms !important;
+
+        animation-iteration-count:
+            1 !important;
+
+        transition-duration:
+            0.01ms !important;
+
+        scroll-behavior:
+            auto !important;
+    }
 }
