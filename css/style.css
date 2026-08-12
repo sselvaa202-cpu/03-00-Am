@@ -1,13 +1,14 @@
-html,
-body {
-    margin: 0;
-    padding: 0;
+/* =====================================================
+   GOOGLE FONT
+===================================================== */
 
-    width: 100%;
-    height: 100%;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Limelight&family=Major+Mono+Display&family=Michroma&family=Notable&family=Oi&family=Ribeye&display=swap');
 
-    overflow: hidden;
-}
+
+/* =====================================================
+   RESET
+===================================================== */
 
 * {
     margin: 0;
@@ -16,9 +17,36 @@ body {
 }
 
 
+html,
+body {
+
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+
+    scroll-behavior: smooth;
+}
+
+
+body {
+
+    background: #000;
+
+    color: #111;
+
+    font-family: Arial, sans-serif;
+}
+
+
+/* =====================================================
+   BACKGROUND VIDEO
+===================================================== */
 
 .bg {
+
     position: fixed;
+
     top: 0;
     left: 0;
 
@@ -30,148 +58,366 @@ body {
     z-index: -2;
 }
 
+/* =====================================================
+   DOTTED BACKGROUND
+   SITS ABOVE VIDEO
+===================================================== */
 
+.dotted-background {
 
-/* SPACE OPENING ANIMATION */
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    pointer-events: none;
+
+    z-index: -1;
+
+    background-image:
+        radial-gradient(
+            circle,
+            rgba(100, 95, 95, 0.35) 1px,
+            transparent 1px
+        );
+
+    background-size: 14px 14px;
+
+    opacity: 0.35;
+}
+
+/* =====================================================
+   SPACE OPENING ANIMATION
+===================================================== */
 
 .space-animation {
-    position: absolute;
+
+    position: fixed;
+
     inset: 0;
+
     z-index: 1;
+
     pointer-events: none;
+
     overflow: hidden;
 }
 
-/* First layer of stars */
+
+/* =====================================================
+   MAIN STARS
+===================================================== */
 
 .stars {
+
     position: absolute;
-    inset: -100%;
-    
-    background-image:
-        radial-gradient(circle, rgb(253, 249, 249) 1px, transparent 1px),
-        radial-gradient(circle, rgb(255, 254, 254) 1px, transparent 1px),
-        radial-gradient(circle, rgb(255, 255, 255) 2px, transparent 2px);
 
-    background-size:
-        100px 100px,
-        170px 170px,
-        250px 250px;
-
-    background-position:
-        20px 30px,
-        80px 100px,
-        150px 200px;
-
-    animation: spaceMove 25s linear infinite;
-}
-
-/* Second layer moves differently */
-
-.stars-2 {
-    opacity: 0.5;
-    transform: scale(1.5);
-
-    animation:
-        spaceMove2 40s linear infinite,
-        starsAppear 2s ease-out forwards;
-}
-
-
-.space-animation {
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-    pointer-events: none;
-    overflow: hidden;
-}
-
-/* Main stars */
-.stars {
-    position: absolute;
     inset: -100%;
 
     background-image:
-        radial-gradient(circle, rgba(255,255,255,0.75) 1px, transparent 1.5px),
-        radial-gradient(circle, rgba(255,255,255,0.65) 1px, transparent 1.5px),
-        radial-gradient(circle, rgba(255,255,255,0.8) 1.5px, transparent 2px);
+
+        radial-gradient(
+            circle,
+            rgba(255,255,255,0.75) 1px,
+            transparent 1.5px
+        ),
+
+        radial-gradient(
+            circle,
+            rgba(255,255,255,0.65) 1px,
+            transparent 1.5px
+        ),
+
+        radial-gradient(
+            circle,
+            rgba(255,255,255,0.8) 1.5px,
+            transparent 2px
+        );
 
     background-size:
+
         90px 90px,
         140px 140px,
         210px 210px;
 
     background-position:
+
         20px 30px,
         80px 100px,
         150px 200px;
 
-    /* FASTER */
-    animation: spaceMove 18s linear infinite;
+    animation:
+
+        spaceMove
+        18s
+        linear
+        infinite;
 }
 
 
-/* Second layer */
+/* =====================================================
+   SECOND STAR LAYER
+===================================================== */
+
 .stars-2 {
+
     opacity: 0.7;
+
     transform: scale(1.5);
 
-    animation: spaceMove2 15s linear infinite;
+    animation:
+
+        spaceMove2
+        15s
+        linear
+        infinite;
 }
 
 
-/* Main star movement */
+/* =====================================================
+   STAR MOVEMENT
+===================================================== */
+
 @keyframes spaceMove {
 
     from {
-        transform: translateY(0);
+
+        transform:
+            translateY(0);
     }
 
     to {
-        transform: translateY(700px);
-    }
 
+        transform:
+            translateY(700px);
+    }
 }
 
 
-/* Second star movement */
 @keyframes spaceMove2 {
 
     from {
-        transform: scale(1.5) translate(0, 0);
+
+        transform:
+            scale(1.5)
+            translate(0, 0);
     }
 
     to {
-        transform: scale(1.5) translate(-250px, 600px);
-    }
 
+        transform:
+            scale(1.5)
+            translate(-250px, 600px);
+    }
 }
 
 
-.home {
-    position: relative;
-    z-index: 2;
+/* =====================================================
+   TOP NAVIGATION
+   03:00 PAGE STYLE
+===================================================== */
+
+.site-header {
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
 
     width: 100%;
-    height: 100vh;
+
+    height: 70px;
 
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+
     align-items: center;
 
-    text-align: center;
+    justify-content: center;
+
+    z-index: 1000;
+
+    opacity: 0;
+
+    transform:
+        translateY(-18px);
+
+    animation:
+
+        headerReveal
+        1.4s
+        cubic-bezier(.16,1,.3,1)
+        0.1s
+        forwards;
 }
 
+
+/* =====================================================
+   HEADER ENTRANCE
+===================================================== */
+
+@keyframes headerReveal {
+
+    0% {
+
+        opacity: 0;
+
+        transform:
+            translateY(-18px);
+    }
+
+    100% {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+/* =====================================================
+   NAVIGATION
+===================================================== */
+
+.site-nav {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 42px;
+}
+
+
+/* =====================================================
+   NAVIGATION LINKS
+===================================================== */
+
+.site-nav a {
+
+    position: relative;
+
+    color: #817a7a;
+
+    text-decoration: none;
+
+    font-family:
+        "Montserrat",
+        Arial,
+        sans-serif;
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+
+    font-weight: 500;
+
+    text-transform: uppercase;
+
+    padding: 5px 0;
+
+    transition:
+
+        color
+        0.4s
+        ease,
+
+        letter-spacing
+        0.5s
+        ease;
+}
+
+
+/* =====================================================
+   NAV HOVER
+===================================================== */
+
+.site-nav a:hover {
+
+    color: #000000;
+
+    letter-spacing: 3.5px;
+}
+
+
+/* =====================================================
+   NAV UNDERLINE
+===================================================== */
+
+.site-nav a::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    bottom: -5px;
+
+    width: 0;
+
+    height: 1px;
+
+    background: #000000;
+
+    transition:
+
+        width
+        0.5s
+        cubic-bezier(.16,1,.3,1);
+}
+
+
+.site-nav a:hover::after {
+
+    width: 100%;
+}
+
+
+/* =====================================================
+   ACTIVE 03:00 LINK
+===================================================== */
+
+.site-nav .time-link {
+
+    color: #000000;
+
+    font-weight: 500;
+
+    letter-spacing: 3px;
+}
+
+
+.site-nav .time-link::after {
+
+    width: 100%;
+
+    opacity: 0.8;
+}
+
+
+/* =====================================================
+   MAIN INTRO
+===================================================== */
+
 .intro {
+
     position: fixed;
+
     inset: 0;
 
     width: 100%;
     height: 100vh;
 
     display: flex;
+
     justify-content: center;
+
     align-items: center;
 
     z-index: 9999;
@@ -179,166 +425,413 @@ body {
     pointer-events: none;
 }
 
-.intro-content {
-    text-align: center;
-    font-family: fantasy ;
-    /* Starting position */
-    opacity: 0;
-    transform: translateY(-120px);
 
-    /* Same animation for heading + quote */
-    animation: introEnter 2s ease-out forwards;
+/* =====================================================
+   INTRO CONTENT
+===================================================== */
+
+.intro-content {
+
+    text-align: center;
+
+    font-family: fantasy;
+
+    opacity: 0;
+
+    transform:
+        translateY(-120px);
+
+    animation:
+
+        introEnter
+        2s
+        cubic-bezier(.16,1,.3,1)
+        forwards;
 }
 
 
-/* 03:00 AM */
+/* =====================================================
+   03:00 AM TITLE
+===================================================== */
 
 .intro h1 {
+
     margin: 0;
 
-    font-size: clamp(80px, 15vw, 220px);
+    font-size:
+        clamp(
+            80px,
+            15vw,
+            220px
+        );
+
     font-weight: 900;
+
     line-height: 0.85;
 
-    background: linear-gradient(
-        to bottom,
-        #000 50%,
-        #333 65%,
-        transparent 100%
-    );
+    background:
+
+        linear-gradient(
+            to bottom,
+            #000 50%,
+            #797676 65%,
+            transparent 100%
+        );
 
     -webkit-background-clip: text;
+
     background-clip: text;
 
     -webkit-text-fill-color: transparent;
 }
 
 
+/* =====================================================
+   QUOTE
+===================================================== */
 
 .intro p {
+
     margin-top: 30px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+    font-family:
+        Verdana,
+        Geneva,
+        Tahoma,
+        sans-serif;
+
     font-size: 20px;
+
     letter-spacing: 2px;
 
-    color: #111;
-        background: linear-gradient(
-        to bottom,
-        #000 50%,
-        #333 65%,
-        transparent 100%
-    );
+    background:
+
+        linear-gradient(
+            to bottom,
+            #000 50%,
+            #050505 65%,
+            transparent 100%
+        );
 
     -webkit-background-clip: text;
+
     background-clip: text;
 
     -webkit-text-fill-color: transparent;
 }
 
 
-
-/* CINEMATIC ENTRY */
+/* =====================================================
+   CINEMATIC INTRO ENTRY
+===================================================== */
 
 @keyframes introEnter {
 
     0% {
+
         opacity: 0;
-        transform: translateY(-120px);
+
+        transform:
+            translateY(-120px)
+            scale(0.96);
+
+        filter:
+            blur(8px);
+    }
+
+    60% {
+
+        opacity: 1;
+
+        filter:
+            blur(0);
+
+        transform:
+            translateY(5px)
+            scale(1);
     }
 
     100% {
+
         opacity: 1;
-        transform: translateY(0);
+
+        transform:
+            translateY(0)
+            scale(1);
+
+        filter:
+            blur(0);
     }
 }
 
-.header{
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    color: #cac1c1;
-    font-size: 15px;
-    position: relative;
-    z-index: 3;
-}
 
-a {
-    color: #7a7474;
-    text-decoration: none;
-    position: relative;
-    font-family: "Montserrat", sans-serif;
-    font-size: 13px;
-    letter-spacing: 3px;
-    font-weight: 500;
-}
-
-a::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -5px;
-
-    width: 0;
-    height: 1px;
-    background: black;
-
-    transition: width 0.3s ease;
-}
-
-a:hover::after {
-    width: 100%;
-}
-
-a:hover{
-    color: #000000;
-}
+/* =====================================================
+   SCROLL INDICATOR
+===================================================== */
 
 .scroll {
+
     position: absolute;
 
     bottom: 45px;
+
     left: 50%;
 
-    transform: translateX(-50%);
+    transform:
+        translateX(-50%);
 
     display: flex;
+
     flex-direction: column;
+
     align-items: center;
 
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    color: #000000;
-    font-size: 13px;
+    font-family:
+    
+        'Trebuchet MS', 
+        'Lucida Sans Unicode', 
+        'Lucida Grande', 
+        'Lucida Sans', Arial, sans-serif;
+
+    color: #000;
+
+    font-size: 9px;
+
     letter-spacing: 3px;
 
-    z-index: 3;
+    z-index: 20;
 }
 
 
-/* Arrow */
+/* =====================================================
+   ARROW
+===================================================== */
 
 .arrow {
-    font-size: 1px;
-    margin-top: 5px;
 
-    animation: arrowMove 1.5s ease-in-out infinite;
+    font-size: 18px;
+
+    margin-top: 8px;
+
+    animation:
+
+        arrowMove
+        1.5s
+        ease-in-out
+        infinite;
 }
 
 
-/* Arrow animation */
+/* =====================================================
+   ARROW ANIMATION
+===================================================== */
 
 @keyframes arrowMove {
 
     0% {
-        transform: translateY(0);
+
+        transform:
+            translateY(0);
+
         opacity: 0.4;
     }
 
     50% {
-        transform: translateY(8px);
+
+        transform:
+            translateY(8px);
+
         opacity: 1;
     }
 
     100% {
-        transform: translateY(0);
+
+        transform:
+            translateY(0);
+
         opacity: 0.4;
     }
+}
 
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 900px) {
+
+    .site-nav {
+
+        gap: 28px;
+    }
+
+
+    .site-nav a {
+
+        font-size: 9px;
+
+        letter-spacing: 2.5px;
+    }
+
+
+    .intro h1 {
+
+        font-size:
+            clamp(
+                70px,
+                14vw,
+                160px
+            );
+    }
+
+
+    .intro p {
+
+        font-size: 16px;
+    }
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .site-header {
+
+        height: 60px;
+
+        padding:
+            0 15px;
+    }
+
+
+    .site-nav {
+
+        gap: 17px;
+
+        width: 100%;
+
+        justify-content:
+            center;
+    }
+
+
+    .site-nav a {
+
+        font-size: 7px;
+
+        letter-spacing: 1.5px;
+    }
+
+
+    .site-nav a:hover {
+
+        letter-spacing: 1.8px;
+    }
+
+
+    .intro h1 {
+
+        font-size:
+            clamp(
+                60px,
+                17vw,
+                100px
+            );
+
+        line-height: 0.9;
+    }
+
+
+    .intro p {
+
+        margin-top: 25px;
+
+        padding:
+            0 20px;
+
+        font-size: 12px;
+
+        letter-spacing: 1.5px;
+
+        line-height: 1.6;
+    }
+
+
+    .scroll {
+
+        bottom: 25px;
+
+        font-size: 9px;
+
+        letter-spacing: 2px;
+    }
+
+
+    .arrow {
+
+        font-size: 15px;
+    }
+}
+
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media (max-width: 400px) {
+
+    .site-nav {
+
+        gap: 11px;
+    }
+
+
+    .site-nav a {
+
+        font-size: 6px;
+
+        letter-spacing: 1px;
+    }
+
+
+    .intro h1 {
+
+        font-size: 58px;
+    }
+
+
+    .intro p {
+
+        font-size: 10px;
+
+        letter-spacing: 1px;
+    }
+}
+
+
+/* =====================================================
+   REDUCE MOTION
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+
+        animation-duration:
+            0.01ms !important;
+
+        animation-iteration-count:
+            1 !important;
+
+        transition-duration:
+            0.01ms !important;
+
+        scroll-behavior:
+            auto !important;
+    }
 }
