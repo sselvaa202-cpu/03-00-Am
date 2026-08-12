@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Michroma&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Limelight&family=Major+Mono+Display&family=Michroma&family=Notable&family=Ribeye&display=swap');
 
 
 /* =========================================================
@@ -150,7 +151,7 @@ body {
    LOGO
 ========================================================= */
 
-.nav-logo {
+/* .nav-logo {
     position: absolute;
 
     left: 0;
@@ -164,7 +165,7 @@ body {
     color: #111;
 
     text-decoration: none;
-}
+} */
 
 
 /* =========================================================
@@ -240,6 +241,12 @@ body {
 
 .site-header nav a:hover::after {
     width: 100%;
+}
+
+#main{
+  font-family: "Michroma", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 

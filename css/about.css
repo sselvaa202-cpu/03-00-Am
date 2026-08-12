@@ -1,0 +1,1610 @@
+/* =====================================================
+   GOOGLE FONT
+===================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap');
+
+
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    width: 100%;
+    min-height: 100vh;
+
+    background: #f7f7f5;
+
+    color: #111;
+
+    font-family: "DM Sans", sans-serif;
+
+    overflow-x: hidden;
+}
+
+
+/* =====================================================
+   CINEMATIC BACKGROUND DOTS
+===================================================== */
+
+body::before {
+    content: "";
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: 0;
+
+    background-image:
+        radial-gradient(
+            rgba(0, 0, 0, 0.15) 0.8px,
+            transparent 0.8px
+        );
+
+    background-size: 20px 20px;
+
+    opacity: 0.32;
+
+    animation:
+        backgroundReveal
+        2.2s
+        cubic-bezier(.16, 1, .3, 1)
+        both;
+}
+
+
+@keyframes backgroundReveal {
+
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0.32;
+    }
+}
+
+
+/* =====================================================
+   PAGE
+===================================================== */
+
+.about-page {
+    position: relative;
+
+    width: 100%;
+    min-height: 100vh;
+
+    padding: 35px 7vw 0;
+
+    isolation: isolate;
+}
+
+
+/*
+   Keep page content above dotted background
+*/
+
+.about-page > * {
+    position: relative;
+
+    z-index: 2;
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.about-header {
+    position: relative;
+
+    width: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    height: 55px;
+
+    z-index: 50;
+
+    animation:
+        cinematicHeader
+        1.4s
+        cubic-bezier(.16, 1, .3, 1)
+        both;
+}
+
+
+@keyframes cinematicHeader {
+
+    0% {
+        opacity: 0;
+
+        transform:
+            translateY(-25px);
+
+        filter:
+            blur(8px);
+    }
+
+    60% {
+        opacity: 0.8;
+
+        filter:
+            blur(2px);
+    }
+
+    100% {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+
+        filter:
+            blur(0);
+    }
+}
+
+
+/* =====================================================
+   LOGO
+===================================================== */
+
+.about-logo {
+    position: absolute;
+
+    left: 0;
+
+    color: #111;
+
+    text-decoration: none;
+
+    font-size: 17px;
+
+    font-weight: 500;
+
+    letter-spacing: 5px;
+}
+
+
+/* =====================================================
+   NAVIGATION
+===================================================== */
+
+.about-nav {
+    display: flex;
+
+    align-items: center;
+
+    gap: 50px;
+}
+
+
+.about-nav a {
+    position: relative;
+
+    color: #777;
+
+    text-decoration: none;
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+    transition:
+        color 0.3s ease;
+}
+
+
+.about-nav a:hover,
+.about-nav a.active {
+    color: #111;
+}
+
+
+.about-nav a::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    bottom: -8px;
+
+    width: 0;
+
+    height: 1px;
+
+    background: #111;
+
+    transition:
+        width 0.35s ease;
+}
+
+
+.about-nav a:hover::after,
+.about-nav a.active::after {
+    width: 100%;
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.about-hero {
+    width: 100%;
+
+    max-width: 1380px;
+
+    margin: 85px auto 0;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(400px, 0.9fr)
+        minmax(500px, 1.1fr);
+
+    gap: 9vw;
+
+    align-items: center;
+
+    min-height: 650px;
+}
+
+
+/* =====================================================
+   LEFT CONTENT
+===================================================== */
+
+.about-content {
+    max-width: 620px;
+
+    padding-bottom: 20px;
+
+    animation:
+        cinematicContent
+        1.8s
+        0.25s
+        cubic-bezier(.16, 1, .3, 1)
+        both;
+}
+
+
+@keyframes cinematicContent {
+
+    0% {
+        opacity: 0;
+
+        transform:
+            translateY(45px);
+
+        filter:
+            blur(10px);
+    }
+
+    65% {
+        opacity: 0.75;
+
+        filter:
+            blur(2px);
+    }
+
+    100% {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+
+        filter:
+            blur(0);
+    }
+}
+
+
+/* =====================================================
+   EYEBROW
+===================================================== */
+
+.eyebrow {
+    display: block;
+
+    margin-bottom: 22px;
+
+    color: #888;
+
+    font-size: 9px;
+
+    letter-spacing: 5px;
+
+    text-transform: uppercase;
+}
+
+
+/* =====================================================
+   MAIN TITLE
+===================================================== */
+
+.about-content h1 {
+    font-family:
+        "Playfair Display",
+        Georgia,
+        serif;
+
+    font-size:
+        clamp(70px, 8vw, 130px);
+
+    font-weight: 400;
+
+    line-height: 0.85;
+
+    letter-spacing: -6px;
+
+    margin-bottom: 35px;
+}
+
+
+/* =====================================================
+   LINE
+===================================================== */
+
+.intro-line {
+    width: 100%;
+
+    height: 1px;
+
+    background:
+        rgba(0, 0, 0, 0.12);
+
+    margin-bottom: 30px;
+}
+
+
+/* =====================================================
+   PARAGRAPHS
+===================================================== */
+
+.about-content p {
+    max-width: 600px;
+
+    margin-bottom: 22px;
+
+    color: #666;
+
+    font-size: 14px;
+
+    line-height: 1.8;
+
+    font-weight: 300;
+}
+
+
+.about-content .about-lead {
+    color: #333;
+
+    font-size: 17px;
+
+    line-height: 1.7;
+
+    margin-bottom: 28px;
+}
+
+
+/* =====================================================
+   SIGNATURE
+===================================================== */
+
+.signature {
+    margin-top: 45px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 7px;
+}
+
+
+.signature span {
+    color: #999;
+
+    font-size: 8px;
+
+    letter-spacing: 4px;
+
+    text-transform: uppercase;
+}
+
+
+.signature strong {
+    font-family:
+        "Playfair Display",
+        Georgia,
+        serif;
+
+    font-size: 28px;
+
+    font-weight: 400;
+
+    font-style: italic;
+}
+
+
+/* =====================================================
+   GITHUB LINK
+===================================================== */
+
+.github-link {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    margin-top: 30px;
+
+    padding-bottom: 8px;
+
+    color: #111;
+
+    text-decoration: none;
+
+    border-bottom:
+        1px solid #111;
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+    transition:
+        gap 0.4s ease;
+}
+
+
+.github-link span {
+    font-size: 15px;
+}
+
+
+.github-link:hover {
+    gap: 22px;
+}
+
+
+/* =====================================================
+   PORTRAIT AREA
+===================================================== */
+
+.portrait-area {
+    position: relative;
+
+    width: 100%;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    perspective: 1000px;
+
+    animation:
+        cinematicPortrait
+        2s
+        0.35s
+        cubic-bezier(.16, 1, .3, 1)
+        both;
+}
+
+
+@keyframes cinematicPortrait {
+
+    0% {
+        opacity: 0;
+
+        transform:
+            translateY(55px)
+            scale(0.96);
+
+        filter:
+            blur(12px);
+    }
+
+    60% {
+        opacity: 0.8;
+
+        filter:
+            blur(3px);
+    }
+
+    100% {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+
+        filter:
+            blur(0);
+    }
+}
+
+
+/* =====================================================
+   PORTRAIT FRAME
+===================================================== */
+
+.portrait-frame {
+    position: relative;
+
+    width: min(520px, 100%);
+
+    aspect-ratio: 0.82;
+
+    padding: 14px;
+
+    background: #fff;
+
+    border:
+        1px solid
+        rgba(0, 0, 0, 0.12);
+
+    transform:
+        rotate(1deg);
+
+    transition:
+        transform 0.7s
+        cubic-bezier(.16, 1, .3, 1);
+
+    z-index: 5;
+}
+
+
+.portrait-frame:hover {
+    transform:
+        rotate(0deg)
+        translateY(-5px);
+}
+
+
+/* =====================================================
+   LIQUID BORDER
+===================================================== */
+
+.liquid-border {
+    position: absolute;
+
+    inset: -7px;
+
+    z-index: -1;
+
+    border:
+        1px solid
+        rgba(0, 0, 0, 0.25);
+
+    border-radius:
+        47% 53% 51% 49%
+        /
+        50% 45% 55% 50%;
+
+    pointer-events: none;
+
+    opacity: 0.7;
+
+    transition:
+        border-radius 0.7s ease,
+        transform 0.7s ease,
+        box-shadow 0.7s ease;
+}
+
+
+/* =====================================================
+   BORDER WAVE WHEN CURSOR APPROACHES BORDER
+===================================================== */
+
+.portrait-frame.border-active
+.liquid-border {
+
+    animation:
+        borderWave
+        1.4s
+        ease-in-out
+        infinite;
+
+    box-shadow:
+        0 0 0 1px
+        rgba(0, 0, 0, 0.08),
+
+        0 0 25px
+        rgba(0, 0, 0, 0.08);
+}
+
+
+@keyframes borderWave {
+
+    0% {
+        border-radius:
+            47% 53% 51% 49%
+            /
+            50% 45% 55% 50%;
+
+        transform:
+            scale(1);
+    }
+
+    25% {
+        border-radius:
+            42% 58% 55% 45%
+            /
+            47% 55% 45% 53%;
+
+        transform:
+            scale(1.008);
+    }
+
+    50% {
+        border-radius:
+            56% 44% 47% 53%
+            /
+            55% 43% 57% 45%;
+
+        transform:
+            scale(1.015);
+    }
+
+    75% {
+        border-radius:
+            49% 51% 58% 42%
+            /
+            44% 57% 43% 56%;
+
+        transform:
+            scale(1.008);
+    }
+
+    100% {
+        border-radius:
+            47% 53% 51% 49%
+            /
+            50% 45% 55% 50%;
+
+        transform:
+            scale(1);
+    }
+}
+
+
+/* =====================================================
+   PORTRAIT
+===================================================== */
+
+.portrait {
+    position: relative;
+
+    width: 100%;
+
+    height: 100%;
+
+    overflow: hidden;
+
+    background: #111;
+
+    cursor: crosshair;
+}
+
+
+/* =====================================================
+   IMAGE BASE
+===================================================== */
+
+.portrait-image {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    object-position: center;
+
+    user-select: none;
+
+    pointer-events: none;
+}
+
+
+/* =====================================================
+   GRAYSCALE IMAGE
+===================================================== */
+
+.grayscale {
+    filter:
+        grayscale(1)
+        contrast(1.05);
+
+    z-index: 1;
+
+    transform:
+        scale(1.035);
+
+    transition:
+        filter 4.8s
+        cubic-bezier(.16, 1, .3, 1),
+
+        transform 5s
+        cubic-bezier(.16, 1, .3, 1);
+}
+
+
+/* =====================================================
+   COLOR IMAGE
+===================================================== */
+
+.color-image {
+
+    z-index: 2;
+
+    filter:
+        saturate(1.15)
+        contrast(1.03);
+
+    /*
+       Initially completely hidden.
+       JavaScript adds .color-active
+       when cursor enters image.
+    */
+
+    opacity: 0;
+
+    transform:
+        scale(1.045);
+
+    transition:
+        opacity 4.8s
+        cubic-bezier(.16, 1, .3, 1),
+
+        transform 5.2s
+        cubic-bezier(.16, 1, .3, 1);
+
+    pointer-events: none;
+}
+
+
+/* =====================================================
+   FULL IMAGE COLOR REVEAL
+===================================================== */
+
+.portrait.color-active .color-image {
+
+    opacity: 1;
+
+    transform:
+        scale(1);
+}
+
+
+/* =====================================================
+   GRAYSCALE IMAGE DURING COLOR TRANSITION
+===================================================== */
+
+.portrait.color-active .grayscale {
+
+    filter:
+        grayscale(0)
+        contrast(1.05);
+
+    transform:
+        scale(1);
+
+    transition:
+        filter 4.8s
+        cubic-bezier(.16, 1, .3, 1),
+
+        transform 5s
+        cubic-bezier(.16, 1, .3, 1);
+}
+
+
+/* =====================================================
+   CINEMATIC COLOR WRAP
+===================================================== */
+
+.portrait.color-active::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: -20%;
+
+    z-index: 3;
+
+    pointer-events: none;
+
+    background:
+        radial-gradient(
+            ellipse at center,
+
+            transparent 25%,
+
+            rgba(255, 255, 255, 0.05) 42%,
+
+            rgba(255, 255, 255, 0.12) 50%,
+
+            transparent 70%
+        );
+
+    opacity: 0;
+
+    transform:
+        scale(0.55);
+
+    animation:
+        colorWrap
+        5s
+        cubic-bezier(.16, 1, .3, 1)
+        forwards;
+}
+
+
+@keyframes colorWrap {
+
+    0% {
+
+        opacity: 0;
+
+        transform:
+            scale(0.55);
+    }
+
+    20% {
+
+        opacity: 0.08;
+    }
+
+    45% {
+
+        opacity: 0.16;
+
+        transform:
+            scale(0.85);
+    }
+
+    65% {
+
+        opacity: 0.10;
+
+        transform:
+            scale(1.05);
+    }
+
+    82% {
+
+        opacity: 0.04;
+
+        transform:
+            scale(1.22);
+    }
+
+    100% {
+
+        opacity: 0;
+
+        transform:
+            scale(1.4);
+    }
+}
+
+
+/* =====================================================
+   CURSOR GLOW
+===================================================== */
+
+.cursor-glow {
+    position: absolute;
+
+    width: 150px;
+
+    height: 150px;
+
+    left: 50%;
+
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,255,255,0.12),
+            transparent 65%
+        );
+
+    mix-blend-mode: screen;
+
+    z-index: 5;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition:
+        opacity 0.8s ease;
+}
+
+
+.portrait.color-active
+.cursor-glow {
+
+    opacity: 1;
+}
+
+
+/* =====================================================
+   FLOATING CARD
+===================================================== */
+
+.floating-card {
+    position: absolute;
+
+    left: -50px;
+
+    bottom: -25px;
+
+    width: 150px;
+
+    height: 125px;
+
+    background:
+        rgba(255, 255, 255, 0.94);
+
+    border:
+        1px solid
+        rgba(0, 0, 0, 0.12);
+
+    box-shadow:
+        0 20px 40px
+        rgba(0, 0, 0, 0.12);
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    z-index: 10;
+
+    transition:
+        transform 0.6s
+        cubic-bezier(.16, 1, .3, 1);
+
+    animation:
+        cardEntrance
+        1.8s
+        0.8s
+        cubic-bezier(.16, 1, .3, 1)
+        both;
+}
+
+
+@keyframes cardEntrance {
+
+    0% {
+        opacity: 0;
+
+        transform:
+            translateY(30px)
+            rotate(5deg)
+            scale(0.9);
+
+        filter:
+            blur(8px);
+    }
+
+    100% {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            rotate(0deg)
+            scale(1);
+
+        filter:
+            blur(0);
+    }
+}
+
+
+.portrait-frame:hover
+.floating-card {
+
+    transform:
+        translateY(-8px)
+        rotate(-2deg);
+}
+
+
+.floating-card .number {
+
+    font-family:
+        "Playfair Display",
+        Georgia,
+        serif;
+
+    font-size: 45px;
+
+    line-height: 1;
+}
+
+
+.floating-card .card-label {
+
+    margin-top: 8px;
+
+    color: #888;
+
+    font-size: 8px;
+
+    letter-spacing: 4px;
+}
+
+
+/* =====================================================
+   PORTRAIT CAPTION
+===================================================== */
+
+.portrait-caption {
+
+    position: absolute;
+
+    right: -5px;
+
+    bottom: -42px;
+
+    display: flex;
+
+    gap: 25px;
+
+    color: #999;
+
+    font-size: 7px;
+
+    letter-spacing: 3px;
+}
+
+
+/* =====================================================
+   PROJECT SECTION
+===================================================== */
+
+.projects-section {
+
+    width: 100%;
+
+    max-width: 1380px;
+
+    margin: 150px auto 0;
+
+    padding-bottom: 100px;
+
+    animation:
+        projectEntrance
+        1.8s
+        1s
+        cubic-bezier(.16, 1, .3, 1)
+        both;
+}
+
+
+@keyframes projectEntrance {
+
+    0% {
+        opacity: 0;
+
+        transform:
+            translateY(70px);
+
+        filter:
+            blur(10px);
+    }
+
+    100% {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+
+        filter:
+            blur(0);
+    }
+}
+
+
+/* =====================================================
+   SECTION HEADING
+===================================================== */
+
+.section-heading {
+
+    padding-bottom: 35px;
+
+    border-bottom:
+        1px solid
+        rgba(0, 0, 0, 0.12);
+}
+
+
+.section-heading span {
+
+    color: #999;
+
+    font-size: 8px;
+
+    letter-spacing: 5px;
+}
+
+
+.section-heading h2 {
+
+    margin-top: 18px;
+
+    font-family:
+        "Playfair Display",
+        Georgia,
+        serif;
+
+    font-size:
+        clamp(35px, 4vw, 60px);
+
+    font-weight: 400;
+
+    line-height: 1;
+}
+
+
+/* =====================================================
+   PROJECT GRID
+===================================================== */
+
+.projects-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    border-bottom:
+        1px solid
+        rgba(0, 0, 0, 0.12);
+}
+
+
+/* =====================================================
+   PROJECT CARD
+===================================================== */
+
+.project-card {
+
+    position: relative;
+
+    min-height: 280px;
+
+    padding: 40px;
+
+    color: #111;
+
+    text-decoration: none;
+
+    border-right:
+        1px solid
+        rgba(0, 0, 0, 0.12);
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: space-between;
+
+    transition:
+        background 0.5s ease,
+        transform 0.5s ease;
+}
+
+
+.project-card:last-child {
+
+    border-right: none;
+}
+
+
+.project-card:hover {
+
+    background: #eeeeeb;
+
+    transform:
+        translateY(-5px);
+}
+
+
+.project-number {
+
+    color: #999;
+
+    font-size: 8px;
+
+    letter-spacing: 3px;
+}
+
+
+.project-card h3 {
+
+    margin-bottom: 15px;
+
+    font-family:
+        "Playfair Display",
+        Georgia,
+        serif;
+
+    font-size: 34px;
+
+    font-weight: 400;
+}
+
+
+.project-card p {
+
+    max-width: 300px;
+
+    color: #777;
+
+    font-size: 12px;
+
+    line-height: 1.7;
+
+    font-weight: 300;
+}
+
+
+.project-arrow {
+
+    position: absolute;
+
+    top: 35px;
+
+    right: 35px;
+
+    font-size: 20px;
+
+    transition:
+        transform 0.4s ease;
+}
+
+
+.project-card:hover
+.project-arrow {
+
+    transform:
+        translate(5px, -5px);
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.about-footer {
+
+    width: 100%;
+
+    padding: 30px 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    border-top:
+        1px solid
+        rgba(0, 0, 0, 0.12);
+
+    color: #999;
+
+    font-size: 7px;
+
+    letter-spacing: 4px;
+
+    animation:
+        footerEntrance
+        1.5s
+        1.2s
+        cubic-bezier(.16, 1, .3, 1)
+        both;
+}
+
+
+@keyframes footerEntrance {
+
+    0% {
+        opacity: 0;
+
+        transform:
+            translateY(25px);
+    }
+
+    100% {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 1100px) {
+
+    .about-page {
+
+        padding:
+            30px 35px 0;
+    }
+
+
+    .about-hero {
+
+        grid-template-columns:
+            1fr;
+
+        gap: 80px;
+
+        margin-top: 70px;
+    }
+
+
+    .about-content {
+
+        max-width: 800px;
+    }
+
+
+    .portrait-area {
+
+        max-width: 650px;
+
+        margin:
+            0 auto;
+    }
+
+
+    .projects-section {
+
+        margin-top: 120px;
+    }
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 700px) {
+
+    .about-page {
+
+        padding:
+            25px 20px 0;
+    }
+
+
+    .about-header {
+
+        justify-content: flex-end;
+    }
+
+
+    .about-logo {
+
+        font-size: 15px;
+    }
+
+
+    .about-nav {
+
+        gap: 17px;
+    }
+
+
+    .about-nav a {
+
+        font-size: 7px;
+
+        letter-spacing: 1px;
+    }
+
+
+    .about-hero {
+
+        margin-top: 65px;
+
+        gap: 70px;
+    }
+
+
+    .about-content h1 {
+
+        font-size: 75px;
+
+        letter-spacing: -4px;
+    }
+
+
+    .about-content p {
+
+        font-size: 13px;
+    }
+
+
+    .about-content .about-lead {
+
+        font-size: 15px;
+    }
+
+
+    .portrait-frame {
+
+        width: 90%;
+    }
+
+
+    .floating-card {
+
+        left: -15px;
+
+        width: 125px;
+
+        height: 105px;
+    }
+
+
+    .projects-grid {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .project-card {
+
+        min-height: 230px;
+
+        border-right: none;
+
+        border-bottom:
+            1px solid
+            rgba(0, 0, 0, 0.12);
+    }
+
+
+    .project-card:last-child {
+
+        border-bottom: none;
+    }
+
+
+    .about-footer {
+
+        flex-direction: column;
+
+        gap: 15px;
+
+        text-align: center;
+    }
+}
+
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media (max-width: 450px) {
+
+    .about-nav {
+
+        gap: 10px;
+    }
+
+
+    .about-nav a {
+
+        font-size: 6px;
+
+        letter-spacing: 1px;
+    }
+
+
+    .about-content h1 {
+
+        font-size: 65px;
+    }
+
+
+    .portrait-frame {
+
+        width: 95%;
+    }
+
+
+    .floating-card {
+
+        left: -5px;
+
+        bottom: -15px;
+    }
+
+
+    .portrait-caption {
+
+        right: 0;
+
+        bottom: -32px;
+
+        gap: 10px;
+    }
+}
+
+
+/* =====================================================
+   REDUCE MOTION
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+
+        animation-duration:
+            0.01ms !important;
+
+        animation-iteration-count:
+            1 !important;
+
+        scroll-behavior:
+            auto !important;
+
+        transition-duration:
+            0.01ms !important;
+    }
+}
