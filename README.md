@@ -14,7 +14,7 @@ A frontend-only creative web experience inspired by modern digital-art and creat
 </p>
 
 <p>
-  <img src="https://img.shields.io/badge/status-in%20development-yellow?style=flat-square" alt="Status: in development" />
+  <img src="https://img.shields.io/badge/status-in%20development-yellow?style=flat-square" alt="Status: completed" />
   <img src="https://img.shields.io/badge/frontend-only-blueviolet?style=flat-square" alt="Frontend only" />
   <img src="https://img.shields.io/badge/responsive-yes-success?style=flat-square" alt="Responsive: yes" />
   <img src="https://img.shields.io/badge/license-personal%20use-blue?style=flat-square" alt="License: personal use" />
