@@ -20,7 +20,7 @@ A frontend-only creative web experience inspired by modern digital-art and creat
   <img src="https://img.shields.io/badge/license-personal%20use-blue?style=flat-square" alt="License: personal use" />
 </p>
 
-**[Live Demo](#)** · **[Report Bug](https://github.com/sselvaa202-cpu/03-00-Am/issues)** · **[Request Feature](https://github.com/sselvaa202-cpu/03-00-Am/issues)**
+**[Live Demo](https://sselvaa202-cpu.github.io/03-00-Am/)** · **[Report Bug](https://github.com/sselvaa202-cpu/03-00-Am/issues)** · **[Request Feature](https://github.com/sselvaa202-cpu/03-00-Am/issues)**
 
 </div>
 
